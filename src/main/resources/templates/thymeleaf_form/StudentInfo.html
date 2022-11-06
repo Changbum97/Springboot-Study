@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body align="center">
+    <h1>학생 세부 정보</h1>
+    <div align="center">
+        <div class="form-style">
+            <div th:text="|#{label.student.name} : ${student.name}|"/> <br/>
+            <div th:text="'학번 : ' + ${student.studentId}"/> <br/>
+            <div th:text="'나이 : ' + ${student.age}"/> <br/>
+
+            <div th:if="${student.isMale == true}" th:text="'성별 : 남성'" />
+            <div th:unless="${student.isMale == true}" th:text="'성별 : 여성'" />
+            <br/>
+
+            <div th:text="'학년 : ' + ${student.grade.description}"/> <br/>
+
+            <div th:if="${student.isAttending == true}" th:text="'재학 여부 : 재학중'" />
+            <div th:unless="${student.isAttending == true}" th:text="'재학 여부 : 휴학중'" />
+            <br/>
+
+            <div>
+                <div>&lt;참여활동&gt;</div>
+                <div th:each="club : ${clubs}">
+                    <input type="checkbox" th:field="${student.clubs}" th:value="${club.key}" disabled />
+                    <label th:for="${#ids.prev('clubs')}" th:text="${club.value}"/>
+                </div>
+            </div>
+            <br/>
+
+            <div th:text="'전공 : ' + ${student.major}" /> <br/>
+            <div align="center">
+                <button type="button" th:onclick="|location.href='@{/student/}'|">뒤로가기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+.form-style {
+    border: black;
+    border-style: solid;
+    width:500px;
+    text-align: left;
+    padding: 20px;
+}
+button {
+    height: 40px;
+    width: 100px;
+    font-size: large;
+}
+</style>

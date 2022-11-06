@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>전체 학생 리스트</h1>
+    <div>
+        <button type="button" th:onclick="|location.href='@{/student/register}'|">학생 추가</button>
+    </div> <br/>
+
+    <div align="center">
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 50px;">ID</th>
+                <th style="width: 150px;">학번</th>
+                <th style="width: 100px;" th:text="#{label.student.name}"></th>
+                <th style="width: 200px">세부 정보</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"/>
+                <td th:text="${student.studentId}"/>
+                <td th:text="${student.name}"/>
+                <td>
+                    <button type="button" th:onclick="|location.href='@{/student/{Id}(Id=${student.id})}'|"
+                            style="width: auto">
+                        세부 정보 보기
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<style>
+table{
+    border-style: solid;
+    border-color: black;
+    width: 500px;
+    text-align: center;
+}
+button {
+    height: 40px;
+    width: 100px;
+    font-size: large;
+}
+</style>

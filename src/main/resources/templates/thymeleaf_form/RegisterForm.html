@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body align="center">
+    <h1>학생 추가 Form</h1>
+    <div align="center">
+        <form action="/student/register" th:object="${student}" method="post">
+            <div>
+                <label th:for="name" th:text="#{label.student.name} + ' : '"></label>
+                <input type="text" th:field="*{name}" placeholder="이름을 입력하세요"/>
+            </div> <br/>
+
+            <div>
+                <label th:for="studentId">학번 : </label>
+                <input type="number" th:field="*{studentId}"/>
+            </div> <br/>
+
+            <div>
+                <label th:for="age">나이 : </label>
+                <input type="number" th:field="*{age}"/>
+            </div> <br/>
+
+            <!-- radio button -->
+            <div>&lt;성별&gt;</div>
+            <div>
+                <label th:for="isMale">남성</label>
+                <input type="radio" th:field="*{isMale}" value="true"/>
+                <label th:for="isMale">여성</label>
+                <input type="radio" th:field="*{isMale}" value="false"/>
+            </div> <br/>
+
+            <div>
+                <div>&lt;학년&gt;</div>
+                <div th:each="grade : ${grades}">
+                    <label th:for="${#ids.next('grade')}" th:text="${grade.description}"/>
+                    <input type="radio" th:field="*{grade}" th:value="${grade.name()}"/>
+                </div>
+            </div> <br/>
+
+            <!-- single checkbox -->
+            <div>
+                <div>&lt;재학 여부&gt;</div>
+                <div>
+                    <label th:for="isAttending">재학중이면 체크하세요</label>
+                    <input type="checkbox" th:field="*{isAttending}" />
+                </div>
+            </div> <br/>
+
+            <!-- multi checkbox -->
+            <div>
+                <div>&lt;참여 활동&gt;</div>
+                <div th:each="club : ${clubs}">
+                    <input type="checkbox" th:field="*{clubs}" th:value="${club.key}" />
+                    <label th:for="${#ids.prev('clubs')}" th:text="${club.value}" />
+                </div>
+            </div> <br/>
+
+            <!-- select -->
+            <div>
+                <div>&lt;전공&gt;</div>
+                <select th:field="*{major}" style="width: 150px;">
+                    <option value="">전공을 선택하세요</option>
+                    <option th:each="major : ${majors}" th:value="${major}" th:text="${major}"/>
+                </select>
+            </div> <br/>
+
+            <div align="center">
+                <button type="button" th:onclick="|location.href='@{/student/}'|">취소</button>
+                <button type="submit" style="margin-left: 30px">추가</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<style>
+form {
+    border: black;
+    border-style: solid;
+    width:500px;
+    text-align: left;
+    padding: 20px;
+}
+button {
+    height: 40px;
+    width: 100px;
+    font-size: large;
+}
+</style>
