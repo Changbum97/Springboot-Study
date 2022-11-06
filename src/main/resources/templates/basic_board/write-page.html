@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/basic_board/style.css">
+    <title>게시판</title>
+    <nav>글 쓰기 화면</nav>
+</head>
+<body>
+<div>
+    <br/>
+    <div align="center">
+        <form action="/basic-board/content/write" method="post">
+            <div class="form-group" align="left">
+                <label for="title">글 제목 : </label>
+                <input type="text" id="title" name="title" placeholder="제목을 입력하세요" width="400px">
+                <br/><br/>
+                <label for="writer">작성자 : </label>
+                <input type="text" id="writer" name="writer" placeholder="작성자를 입력하세요" width="200px">
+                <br/><br/>
+                <label for="password">비밀번호 : </label>
+                <input type="password" id="password" name="password" width="200px">
+                <br/><br/>
+                <label for="texts">글 내용 : </label>
+                <br/><br/>
+                <textarea id="texts" name="texts"></textarea>
+            </div>
+            <button type="submit">제출</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/basic_board/style.css">
+    <title>게시판</title>
+    <nav>홈 화면</nav>
+</head>
+<body>
+  <div>
+    <br/>
+      <div align="right" style="margin-right: 100px">
+        <button onclick="location.href='./basic-board/content/write'">
+          글 작성
+        </button>
+      </div>
+  </div>
+  <br/>
+  <div>
+    <table border="1" width="1100" align="center">
+      <thead>
+        <tr>
+          <th width="50">#</th>
+          <th width="550">제목</th>
+          <th width="200">작성자</th>
+          <th width="200">최근 수정일</th>
+          <th width="200">글 보기/수정/삭제</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr th:each="content: ${contents}">
+          <td th:text="${content.id}"></td>
+          <td th:text="${content.title}"></td>
+          <td th:text="${content.writer}"></td>
+          <td th:text="${content.updateDate}"></td>
+          <td> <button th:onclick="|location.href='@{/basic-board/content/}'+${content.id}|" style="height:40px;">보기</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
