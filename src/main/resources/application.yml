@@ -1,0 +1,23 @@
+#spring.messages.basename = messages
+spring:
+  # 에러 메세지 설정
+  messages:
+    basename: errors
+  # DB 접속 정보 설정
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb
+    username: root
+    password: root1234
+  # JPA 설정
+  jpa:
+    hibernate:
+      # 프로그램 실행 시 table 새로 생성
+      ddl-auto: create
+    # query를 log로 보여줄지 여부
+    show-sql: true
+    # format 지정
+    properties:
+      hibernate:
+        format_sql: true
+
