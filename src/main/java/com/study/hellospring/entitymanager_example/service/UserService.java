@@ -1,7 +1,7 @@
-package com.study.hellospring.hibernate_example.service;
+package com.study.hellospring.entitymanager_example.service;
 
-import com.study.hellospring.hibernate_example.domain.User;
-import com.study.hellospring.hibernate_example.repository.UserRepository;
+import com.study.hellospring.entitymanager_example.domain.User;
+import com.study.hellospring.entitymanager_example.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

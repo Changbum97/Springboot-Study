@@ -1,4 +1,4 @@
-package com.study.hellospring.hibernate_example.domain;
+package com.study.hellospring.entitymanager_example.domain;
 
 import lombok.Data;
 

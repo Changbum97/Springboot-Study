@@ -1,6 +1,6 @@
-package com.study.hellospring.hibernate_example.repository;
+package com.study.hellospring.entitymanager_example.repository;
 
-import com.study.hellospring.hibernate_example.domain.User;
+import com.study.hellospring.entitymanager_example.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

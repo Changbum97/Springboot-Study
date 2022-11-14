@@ -1,13 +1,13 @@
-package com.study.hellospring.hibernate_example.controller;
+package com.study.hellospring.entitymanager_example.controller;
 
-import com.study.hellospring.hibernate_example.domain.User;
-import com.study.hellospring.hibernate_example.service.UserService;
+import com.study.hellospring.entitymanager_example.domain.User;
+import com.study.hellospring.entitymanager_example.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/hibernate-example/user")
+@RequestMapping("/entitymanager-example/user")
 @RequiredArgsConstructor
 public class UserController {
 
