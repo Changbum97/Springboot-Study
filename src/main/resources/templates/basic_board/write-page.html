@@ -10,7 +10,7 @@
 <div>
     <br/>
     <div align="center">
-        <form action="/basic-board/content/write" method="post">
+        <form action="/basic-board/content/write" method="post" enctype="multipart/form-data">
             <div class="form-group" align="left">
                 <label for="title">글 제목 : </label>
                 <input type="text" id="title" name="title" placeholder="제목을 입력하세요" width="400px">
@@ -20,6 +20,12 @@
                 <br/><br/>
                 <label for="password">비밀번호 : </label>
                 <input type="password" id="password" name="password" width="200px">
+                <br/><br/>
+                <label for="attachFile">첨부파일 : </label>
+                <input type="file" id="attachFile" name="attachFile"/>
+                <br/><br/>
+                <label for="imageFiles">이미지 파일들 : </label>
+                <input type="file" id="imageFiles" name="imageFiles" multiple="multiple"/>
                 <br/><br/>
                 <label for="texts">글 내용 : </label>
                 <br/><br/>

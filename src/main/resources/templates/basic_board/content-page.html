@@ -19,6 +19,15 @@
         <label for="password">비밀번호 확인 : </label>
         <input type="password" id="password" name="password" width="200px">
         <br/><br/>
+        <text>첨부파일(클릭시 다운) : </text>
+        <a th:if="${content.attachFile}" th:href="|/basic-board/attach/${content.id}|"
+           th:text="${content.attachFile.uploadFilename}" />
+        <br/><br/>
+        <text>첨부된 이미지 파일들</text>
+        <br/>
+        <img th:each="imageFile : ${content.imageFiles}" th:src="|/basic-board/images/${imageFile.storeFilename}|"
+             width="100px" height="100px" style="border-color: black; border-style: solid; border-width: thin;"/>
+        <br/><br/>
         <label for="texts">글 내용 : </label>
         <br/><br/>
         <textarea id="texts" name="texts">[[${content.texts}]]</textarea>
