@@ -1,5 +1,9 @@
 # Spring Study
 
-## EntityManager_example
+## thymeleaf_basic
+
+- Thymeleaf 기본 개념 예제
+
+## entityManager_example
 
 - Entity Manager을 사용해 MySQL DB에 Data CRUD 예제
