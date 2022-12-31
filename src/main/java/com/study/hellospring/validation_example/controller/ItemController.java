@@ -1,6 +1,6 @@
-package com.study.hellospring.validation_practice.controller;
+package com.study.hellospring.validation_example.controller;
 
-import com.study.hellospring.validation_practice.domain.AddItemForm;
+import com.study.hellospring.validation_example.domain.AddItemForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,7 @@ public class ItemController {
     @GetMapping("/add")
     public String addItemForm(Model model) {
         model.addAttribute("addItemForm",new AddItemForm());
-        return "validation_practice/addForm";
+        return "validation_example/addForm";
     }
 
     @PostMapping("/add")
@@ -37,7 +37,7 @@ public class ItemController {
         // 모든 에러 처리
         if(bindingResult.hasErrors()) {
             log.info("상품 등록 실패");
-            return "validation_practice/addForm";
+            return "validation_example/addForm";
         }
 
         log.info("상품 등록 완료");

@@ -1,4 +1,4 @@
-package com.study.hellospring.validation_practice.domain;
+package com.study.hellospring.validation_example.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
