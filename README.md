@@ -1,4 +1,4 @@
-# Spring Boot Study
+# SpringBoot Study
 
 ## thymeleaf_basic
 
