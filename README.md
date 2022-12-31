@@ -41,3 +41,8 @@
 ## jparepository_example
 
 - Jpa Repository를 사용해(상속 받아) MySQL DB에 Data CRUD 예제
+
+## jpa_mapping_example
+
+- Jpa Repository를 사용한 1:1, 1:N, N:M 연관관계 매핑 예제
+- 1:N 연관관계 매핑 => Team : Player = 1 : N 관계
