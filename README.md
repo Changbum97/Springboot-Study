@@ -1,4 +1,4 @@
-# Spring Study
+# Spring Boot Study
 
 ## thymeleaf_basic
 
@@ -28,7 +28,7 @@
 ![](https://blog.kakaocdn.net/dn/3ICS3/btrP7NJztSf/jUO3ejt0zFotaNTSOtGFQ1/img.png)
 ![](https://blog.kakaocdn.net/dn/bSLJJs/btrRd62noh4/rcTeBCKJJHCe7FkVz4n63K/img.png)
 
-## validation_practice
+## validation_example
 
 - Thymeleaf로 만든 Form을 활용해 Validation(검증)하는 예제
   - field error, global error 사용
