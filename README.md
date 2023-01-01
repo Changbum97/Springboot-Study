@@ -58,3 +58,11 @@
   - 모든 등록 조회 기능 구현
   - 수험생 조회 기능 구현 => 수험생이 등록한 모든 학원 이름 리스트도 출력
   - 학원 조회 기능 구현 => 학원에 등록한 모든 수험생 이름 리스트도 출력
+
+## circular_referance_example
+
+- Jpa 연관관계 매핑 시 순환 참조 문제를 해결하는 방법
+  1. @JsonIgnore 어노테이션 사용
+  2. @JsonManagedReference, @JsonBackReference 어노테이션 사용
+  3. **DTO 활용**
+  4. 단방향 매핑으로 수정
