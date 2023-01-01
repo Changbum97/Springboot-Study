@@ -46,3 +46,10 @@
 
 - Jpa Repository를 사용한 1:1, 1:N, N:M 연관관계 매핑 예제
 - 1:N 연관관계 매핑 => Team : Player = 1 : N 관계
+  - Team 등록, Player 등록 구현
+  - Team 조회 시 해당 Team에 속한 Player들의 이름도 return
+  - Player 조회 시 해당 Player가 속한 Team의 이름도 return
+- 1:1 연관관계 매핑 => Customer : Seat = 1 : 1 관계
+  - @PostConstruct를 사용해 초기 데이터 생성
+  - customerId와 seatId를 입력받아 좌석 예약 기능 구현
+  - Seat의 rowId, colId를 입력받아 해당 좌석의 예약 상황 조회 기능 구현
