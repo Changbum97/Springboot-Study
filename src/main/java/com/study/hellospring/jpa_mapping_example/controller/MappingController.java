@@ -1,16 +1,14 @@
 package com.study.hellospring.jpa_mapping_example.controller;
 
 import com.study.hellospring.jpa_mapping_example.domain.dto.*;
-import com.study.hellospring.jpa_mapping_example.domain.entity.Customer;
-import com.study.hellospring.jpa_mapping_example.domain.entity.Player;
-import com.study.hellospring.jpa_mapping_example.domain.entity.Seat;
-import com.study.hellospring.jpa_mapping_example.domain.entity.Team;
-import com.study.hellospring.jpa_mapping_example.repository.CustomerRepository;
-import com.study.hellospring.jpa_mapping_example.repository.PlayerRepository;
-import com.study.hellospring.jpa_mapping_example.repository.SeatRepository;
-import com.study.hellospring.jpa_mapping_example.repository.TeamRepository;
+import com.study.hellospring.jpa_mapping_example.domain.entity.*;
+import com.study.hellospring.jpa_mapping_example.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/jpa-mapping-example")
@@ -78,4 +76,50 @@ public class MappingController {
             return String.format("(%s, %d) 좌석 예약 손님 : %s", request.getRowId(), request.getColId(), seat.getCustomer().getName());
         }
     }
+
+    /**
+     * N:M 관계 예제
+     */
+    private final ExamineeRepository examineeRepository;
+    private final AcademyRepository academyRepository;
+    private final ExamineeAcademyRepository examineeAcademyRepository;
+
+    @PostMapping("/register-academy")
+    public String registerAcademy(@RequestBody RegisterRequest request) {
+        Examinee examinee = examineeRepository.findById(request.getExamineeId()).get();
+        Academy academy = academyRepository.findById(request.getAcademyId()).get();
+
+        ExamineeAcademy newRegister = new ExamineeAcademy();
+        newRegister.setExaminee(examinee);
+        newRegister.setAcademy(academy);
+        newRegister.setRegisterDate(LocalDateTime.now());
+        examineeAcademyRepository.save(newRegister);
+
+        return String.format("%s 수험생이 %s에 등록하였습니다.", examinee.getName(), academy.getName());
+    }
+
+    @GetMapping("/register-academy")
+    public String showRegisterAcademy() {
+        List<ExamineeAcademy> examineeAcademies = examineeAcademyRepository.findAll();
+
+        List<ExamineeAcademyDto> dto = new ArrayList<>();
+        for(ExamineeAcademy examineeAcademy : examineeAcademies) {
+            dto.add(ExamineeAcademyDto.of(examineeAcademy));
+        }
+
+        return dto.toString();
+    }
+
+    @GetMapping("/academy/{academyId}")
+    public String showAcademy(@PathVariable Long academyId) {
+        Academy academy = academyRepository.findById(academyId).get();
+        return AcademyDto.of(academy).toString();
+    }
+
+    @GetMapping("/examinee/{examineeId}")
+    public String showExaminee(@PathVariable Long examineeId) {
+        Examinee examinee = examineeRepository.findById(examineeId).get();
+        return ExamineeDto.of(examinee).toString();
+    }
+
 }
