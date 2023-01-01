@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class MakeInitData {
     private final CustomerRepository customerRepository;
