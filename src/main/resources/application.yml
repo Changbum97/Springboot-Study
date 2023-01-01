@@ -13,7 +13,7 @@ spring:
   jpa:
     hibernate:
       # 프로그램 실행 시 table 새로 생성
-      ddl-auto: create
+      ddl-auto: create-drop
     # query를 log로 보여줄지 여부
     show-sql: true
     # format 지정
