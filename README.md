@@ -66,3 +66,10 @@
   2. @JsonManagedReference, @JsonBackReference 어노테이션 사용
   3. **DTO 활용**
   4. 단방향 매핑으로 수정
+
+## filter_interceptor_example
+
+- Filter와 Interceptor 사용 예제
+- LogFilter와 LogInterceptor을 생성, 등록하여 모든 요청에 대한 로그를 찍는 예제
+- AuthFilter와 AuthInterceptor을 생성, 등록하여 특정 요청에 대해 인증을 진행하여 통과시키거나 통과시키지 않는 예제
+- Filter와 Interceptor을 동시에 적용하는 요청을 만들어 테스트 => Filter, Interceptor의 실행 순서 확인
