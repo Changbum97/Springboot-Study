@@ -46,8 +46,8 @@ public class ExceptionController {
                 .body(new ExceptionDto(errorCode, "ADMIN만 접근 가능합니다"));
     }
 
-    @GetMapping("/throw-my-exception/3")
-    public ResponseEntity<?> throwMyException3() {
+    @GetMapping("/throw-exception/3")
+    public ResponseEntity<?> throwException3() {
         // ex) 회원가입 시 username이 중복되는 경우
         ErrorCode errorCode = ErrorCode.DUPLICATED_USER_NAME;
 
@@ -55,9 +55,8 @@ public class ExceptionController {
                 .body(new ExceptionDto(errorCode));
     }
 
-    @GetMapping("/throw-my-exception/4")
-    @ResponseBody
-    public ResponseEntity<?> throwMyException4() {
+    @GetMapping("/throw-exception/4")
+    public ResponseEntity<?> throwException4() {
         // ex) DB 에러가 발생한 경우
         ErrorCode errorCode = ErrorCode.DATABASE_ERROR;
 
