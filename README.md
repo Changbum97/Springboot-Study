@@ -76,4 +76,11 @@
 
 ## exception_example
 
-- 
+- Exception 처리 관련 예제
+- exception 발생 구현
+- Whitelabel Error Page가 아닌 직접 만든 Error Page 적용 구현
+- Error Code 설정, MyException 적용
+- @ExceptionHandler을 사용한 exception 처리
+- @ControllerAdvice, @RestControllerAdvice를 사용한 exception 처리
+- @InitBinder, @ModelAttribute 예제 구현
+  - @(Rest)ControllerAdvice와 같이 사용하면 다양하게 활용 가능
