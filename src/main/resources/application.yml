@@ -1,4 +1,3 @@
-#spring.messages.basename = messages
 spring:
   # 에러 메세지 설정
   messages:
@@ -20,3 +19,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+# 화면에 에러 정보 출력
+server:
+  error:
+    include-exception: true
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always
