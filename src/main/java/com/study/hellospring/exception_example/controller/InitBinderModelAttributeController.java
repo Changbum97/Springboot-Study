@@ -14,7 +14,7 @@ import java.util.Date;
 
 @Slf4j
 @Controller
-public class TestController {
+public class InitBinderModelAttributeController {
 
     @Data
     private static class InitBinderDto {
@@ -33,7 +33,7 @@ public class TestController {
     @GetMapping("/model-attribute")
     public String home() {
         log.info("home 실행");
-        return "home.html";
+        return "exception_example/home.html";
     }
 
     @InitBinder()
