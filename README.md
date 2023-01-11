@@ -92,3 +92,9 @@
   1. JSONParser
   2. Gson
   3. ObjectMapper
+
+# converter_formatter_example
+
+- Converter을 적용해 IpPort <-> String 변환 예제
+- Formatter을 사용해 10000 -> 10,000 변환 예제
+- Formatter 어노테이션(@NumberFormat, @DateTimeFormat 등)을 활용한 Formatting 예제
