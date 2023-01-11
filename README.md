@@ -84,3 +84,11 @@
 - @ControllerAdvice, @RestControllerAdvice를 사용한 exception 처리
 - @InitBinder, @ModelAttribute 예제 구현
   - @(Rest)ControllerAdvice와 같이 사용하면 다양하게 활용 가능
+
+## json_example
+
+- API 통신에서의 JSON 데이터 송,수신 방법 정리
+- JsonString <-> Object 형 변환 방법 3가지 정리
+  1. JSONParser
+  2. Gson
+  3. ObjectMapper
