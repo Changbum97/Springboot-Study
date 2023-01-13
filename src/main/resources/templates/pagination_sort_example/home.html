@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagination Example</title>
+</head>
+<body>
+<div>
+    <h3>검색 나이 범위 : </h3>
+    <h3>검색 랭크 범위 : </h3>
+    <h3>정렬 기준 : </h3>
+</div>
+<div style="width: 500px; text-align: center;" align="center">
+    <br/><hr/><br/>
+    <table align="center">
+        <tr align="center">
+            <th style="width: 50px;">#</th>
+            <th style="width:100px;">이름</th>
+            <th style="width: 50px;">나이</th>
+            <th style="width:130px;">랭크</th>
+        </tr>
+        <tr th:each="gamer : ${gamers}" align="center">
+            <td th:text="${gamer.id}"/>
+            <td th:text="${gamer.name}"/>
+            <td th:text="${gamer.age}"/>
+            <td th:text="${gamer.rank}"/>
+        </tr>
+    </table>
+    <br/><br/>
+    <button th:disabled="${!gamers.hasPrevious()}"
+            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber()})}'|">이전 페이지</button>
+    <span>[[${gamers.getNumber() + 1}]] / [[${gamers.getTotalPages()}]] page</span>
+    <button th:disabled="${!gamers.hasNext()}"
+            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber() + 2})}'|">다음 페이지</button>
+    <br/><br/><hr/><br/>
+</div>
+<div>
+
+</div>
+</body>
+</html>
