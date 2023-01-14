@@ -5,13 +5,50 @@
     <title>Pagination Example</title>
 </head>
 <body>
+<div style="width: 500px;">
+    <form th:object="${searchForm}" th:method="get" action="/pagination-sort-example/gamers">
+        <div>
+            <input type="number" th:field="*{ageGe}" th:value="*{ageGe}" style="width: 50px">
+            <label th:for="ageGe">살 이상</label>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="number" th:field="*{ageLe}" th:value="*{ageLe}" style="width: 50px">
+            <label th:for="ageLe">살 이하</label>
+        </div>
+        <br/>
+        <div>
+            <select th:field="*{rankGe}">
+                <option th:each="rank: ${ranks}" th:value="${rank}" th:text="${rank}" />
+            </select>
+            <label th:for="*{rankGe}">이상</label>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <select th:field="*{rankLe}">
+                <option th:each="rank: ${ranks}" th:value="${rank}" th:text="${rank}" />
+            </select>
+            <label th:for="*{rankLe}">이상</label>
+        </div>
+        <br/>
+        <div>
+            <span>정렬 기준 : </span>
+            <select th:field="*{sortType}">
+                <option th:each="sortType: ${sortTypes}" th:value="${sortType}" th:text="${sortType.description}" />
+            </select>
+        </div>
+        <br/>
+        <div>
+            <button type="submit">검색</button>
+        </div>
+    </form>
+    <br/><hr/>
+</div>
 <div>
-    <h3>검색 나이 범위 : </h3>
-    <h3>검색 랭크 범위 : </h3>
-    <h3>정렬 기준 : </h3>
+    <h3>검색 나이 범위 : [[${searchForm.ageGe}]] ~ [[${searchForm.ageLe}]]</h3>
+    <h3>검색 랭크 범위 : [[${searchForm.rankGe}]] ~ [[${searchForm.rankLe}]]</h3>
+    <h3>정렬 기준 : [[${searchForm.sortType.description}]]</h3>
+    <h3>검색 개수 : [[${gamers.getTotalElements()}]]</h3>
+    <h3>현재 페이지 : [[${gamers.getNumber() + 1}]]</h3>
 </div>
 <div style="width: 500px; text-align: center;" align="center">
-    <br/><hr/><br/>
+    <hr/><br/>
     <table align="center">
         <tr align="center">
             <th style="width: 50px;">#</th>
@@ -28,10 +65,12 @@
     </table>
     <br/><br/>
     <button th:disabled="${!gamers.hasPrevious()}"
-            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber()})}'|">이전 페이지</button>
+            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber()}, ageGe=${searchForm.getAgeGe()}, ageLe=${searchForm.getAgeLe()}, rankGe=${searchForm.getRankGe()}, rankLe=${searchForm.getRankLe()}, sortType=${searchForm.getSortType()})}'|">
+        이전 페이지</button>
     <span>[[${gamers.getNumber() + 1}]] / [[${gamers.getTotalPages()}]] page</span>
     <button th:disabled="${!gamers.hasNext()}"
-            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber() + 2})}'|">다음 페이지</button>
+            th:onclick="|location.href='@{/pagination-sort-example/gamers(page=${gamers.getNumber() + 2}, ageGe=${searchForm.getAgeGe()}, ageLe=${searchForm.getAgeLe()}, rankGe=${searchForm.getRankGe()}, rankLe=${searchForm.getRankLe()}, sortType=${searchForm.getSortType()})}'|">
+        다음 페이지</button>
     <br/><br/><hr/><br/>
 </div>
 <div>

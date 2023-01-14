@@ -7,11 +7,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SortType {
 
-    NO("정렬 안함"),
-    AGE_DESC("나이 내림차순"),
+    ID_ASC("아이디 오름차순"),
+    ID_DESC("아이디 내림차순"),
     AGE_ASC("나이 오름차순"),
-    RANK_DESC("랭크 내림차순"),
-    RANK_ASC("랭크 오름차순");
+    AGE_DESC("나이 내림차순"),
+    RANK_ASC("랭크 오름차순"),
+    RANK_DESC("랭크 내림차순");
 
     private final String description;
 

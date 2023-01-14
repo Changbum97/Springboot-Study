@@ -14,7 +14,6 @@ public class Gamer {
     private String name;
     private int age;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "\"rank\"")
     private Rank rank;
 }

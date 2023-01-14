@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pagination Example</title>
+</head>
+<body>
+<script th:inline="javascript">
+    window.onload = function () {
+        alert([[${message}]])
+        window.location.href = [[${nextUrl}]]
+    }
+</script>
+</body>
+</html>
