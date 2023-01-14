@@ -93,8 +93,18 @@
   2. Gson
   3. ObjectMapper
 
-# converter_formatter_example
+## converter_formatter_example
 
 - Converter을 적용해 IpPort <-> String 변환 예제
 - Formatter을 사용해 10000 -> 10,000 변환 예제
 - Formatter 어노테이션(@NumberFormat, @DateTimeFormat 등)을 활용한 Formatting 예제
+
+## pagination_sort_example
+
+- JpaRepository를 활용한 페이징 기능 구현
+- 검색 기능 구현
+  - 조건에 해당하는 데이터 출력
+  - 검색 결과를 유지하면서 페이지 이동 구현
+- 정렬 기능 구현
+  - 데이터의 정렬 방식을 입력받아 정렬 구현
+- JavaScript를 활용한 화면 메세지 출력 구현
