@@ -19,7 +19,9 @@ public class Parent {
     private String name;
     private int age;
 
-    @OneToMany(mappedBy = "parent")
+//    @OneToMany(mappedBy = "parent")
+//    @OneToMany(mappedBy = "parent", orphanRemoval = true)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE)
     List<Child> children = new ArrayList<>();
 
 }
