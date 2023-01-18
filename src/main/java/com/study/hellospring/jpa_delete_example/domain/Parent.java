@@ -20,8 +20,11 @@ public class Parent {
     private int age;
 
 //    @OneToMany(mappedBy = "parent")
-//    @OneToMany(mappedBy = "parent", orphanRemoval = true)
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "parent", orphanRemoval = true)
+//    @OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE)
     List<Child> children = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "grand_parent_id")
+    private GrandParent grandParent;
 }
