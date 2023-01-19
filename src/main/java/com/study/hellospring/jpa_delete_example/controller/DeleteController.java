@@ -9,6 +9,7 @@ import com.study.hellospring.jpa_delete_example.repository.ParentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -83,10 +84,21 @@ public class DeleteController {
         return parentId + "번 부모 삭제 완료";
     }
 
-
     @DeleteMapping("/child/{childId}")
     public String deleteChild(@PathVariable Long childId) {
         childRepository.deleteById(childId);
+        return childId + "번 자식 삭제 완료";
+    }
+
+    // CascadeType.REMOVE와 orphanRemoval = true 차이 비교
+    @DeleteMapping("/child2/{childId}")
+    public String deleteChild2(@PathVariable Long childId) {
+        Child child = childRepository.findById(childId).get();
+        Parent parent = child.getParent();
+
+        parent.getChildren().remove(child);
+        child.setParent(null);
+
         return childId + "번 자식 삭제 완료";
     }
 }

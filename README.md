@@ -108,3 +108,11 @@
 - 정렬 기능 구현
   - 데이터의 정렬 방식을 입력 받아 해당 방식에 맞는 정렬 구현
 - JavaScript를 활용한 화면 메세지 출력 구현
+
+## jpa_delete_example
+
+- Jpa 연관관계 매핑 시 부모 객체 삭제 방법
+1. CascadeType.REMOVE 적용
+2. orphanRemoval = true 적용
+3. Soft Delete
+- CascadeType.REMOVE와 orphanRemoval = true 차이 비교

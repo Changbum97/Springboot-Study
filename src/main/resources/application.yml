@@ -18,7 +18,7 @@ spring:
     # format 지정
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
 
 # 화면에 에러 정보 출력
 server:
