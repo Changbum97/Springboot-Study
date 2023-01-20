@@ -113,6 +113,6 @@
 
 - Jpa 연관관계 매핑 시 부모 객체 삭제 방법
 1. CascadeType.REMOVE 적용
-2. orphanRemoval = true 적용
-3. Soft Delete
-- CascadeType.REMOVE와 orphanRemoval = true 차이 비교
+2. orphanRemoval 적용
+3. Soft Delete 적용 (논리 삭제, 실제로 삭제시키지 않는 방법)
+- CascadeType.REMOVE와 orphanRemoval의 차이 비교
